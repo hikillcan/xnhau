@@ -2,10 +2,6 @@
   "name": "aqakc-personal-project",
   "version": "1.0.0",
   "description": "Personal project web page",
-  "scripts": {
-    "dev": "echo 'This is a static site. Just open index.html in your browser.'",
-    "build": "echo 'No build step required for static HTML/CSS/JS.'"
-  },
   "keywords": [
     "personal",
     "portfolio"
