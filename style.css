@@ -1,0 +1,119 @@
+/* CSS reset & base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+/* Overlay */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.2s ease-out; /* fast fade out */
+}
+
+#overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#overlay span {
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+}
+
+/* 3D Parallax Environment */
+#scene {
+    width: 100vw;
+    height: 100vh;
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper {
+    transform-style: preserve-3d;
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Spacing between text, video, links */
+}
+
+/* Top text */
+.title {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 24px;
+    color: #ececec;
+    transform: translateZ(40px); /* 3D layer out */
+}
+
+/* Video container */
+.video-box {
+    transform: translateZ(20px); /* slightly less popped out than text */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.05);
+    display: flex;
+}
+
+video {
+    width: 320px; /* Adjust based on your preference */
+    max-width: 90vw;
+    pointer-events: none; /* No player interaction */
+    display: block;
+}
+
+/* Links */
+.links {
+    display: flex;
+    gap: 40px;
+    transform: translateZ(50px); /* popped out the most */
+}
+
+.links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.links a:hover, .links a:focus {
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.6),
+                 0 0 45px rgba(255, 255, 255, 0.4);
+}
